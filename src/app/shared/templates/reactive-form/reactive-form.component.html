@@ -1,0 +1,11 @@
+<form [formGroup]="form" novalidate>
+	<div *ngFor="let control of schema">
+		<ng-container [ngSwitch]="control.type">
+
+			<app-text-field *ngSwitchCase="'text-field'" [form]="form" [props]="control"></app-text-field>
+			<app-number-field *ngSwitchCase="'number-field'" [form]="form" [props]="control"></app-number-field>
+			<app-password-field *ngSwitchCase="'password-field'" [form]="form" [props]="control"></app-password-field>
+
+		</ng-container>
+	</div>
+</form>
